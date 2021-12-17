@@ -3,7 +3,7 @@ import CustomStyles from '../custom-styles/custom-styles';
 
 export const CartContainer = styled.div`
     position: absolute;
-    height: 500px;
+    height: 520px;
     width: 340px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     top: 75px;
@@ -55,6 +55,20 @@ export const CartDropdownContainer = styled.div`
     overflow-y: auto;
     margin: 30px 0 70px;
     width: 100%;
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
 `;
 
 

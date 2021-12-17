@@ -11,9 +11,9 @@ import {    BrightOverlay,
             PriceText,
             AddCartButton,
             AddCartButtonContainer
-        } 
+        }
         from './item-preview.styles';
-import { RupiahFormat } from '../../utils/utils';
+import { VndFormat } from '../../utils/utils';
 import { addItem } from '../../redux/cart/cart.actions';
 
 const ItemPreview = ({ payload, addItem}) => {
@@ -28,7 +28,7 @@ const ItemPreview = ({ payload, addItem}) => {
                             Add to Cart
                         </AddCartButton>
                     </AddCartButtonContainer>
-                    
+
                 {/* <Circle delay={'.1s'}>
                         <i class="fas fa-search"></i>
                 </Circle>
@@ -43,7 +43,7 @@ const ItemPreview = ({ payload, addItem}) => {
                 </ItemNameText>
                 <PriceContainer>
                     <VerticalLine/>
-                    <PriceText>{RupiahFormat(price)}</PriceText>
+                    <PriceText>{VndFormat(price)}</PriceText>
                 </PriceContainer>
             </DetailItemContainer>
         </ItemPreviewContainer>

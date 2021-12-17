@@ -9,7 +9,7 @@ import { PaymentFormContainer } from './payment-form.styles';
 
 import { selectSubtotalCartItems } from '../../redux/cart/cart.selectors';
 import { setNotifShow } from '../../redux/notif/notif.actions';
-import { RupiahFormat } from '../../utils/utils';
+import { VndFormat } from '../../utils/utils';
 
 const useOptions = () => {
   const options = {
@@ -17,7 +17,7 @@ const useOptions = () => {
         base: {
           fontSize: '15px',
           fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
-          fontWeight: 500,  
+          fontWeight: 500,
           "::placeholder": {
             color: "#aab7c4"
           }
@@ -44,7 +44,7 @@ const CardForm = ({total, setNotifShow}) => {
     }
 
     const token = await stripe.createToken(elements.getElement(CardElement));
-  
+
     if (token.error) {
       setNotifShow({
         type: 'danger',
@@ -117,11 +117,11 @@ const CardForm = ({total, setNotifShow}) => {
                 />
             </label>
             <CustomButton style={{width: '100%', marginTop: '20px'}} type="submit" disabled={!stripe}>
-                Pay {RupiahFormat(total)}
+                Pay {VndFormat(total)}
             </CustomButton>
         </form>
     </PaymentFormContainer>
-   
+
   );
 };
 

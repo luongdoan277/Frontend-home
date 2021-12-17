@@ -1,6 +1,6 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
 
 const config = {
     apiKey: "AIzaSyCDAhnqQ7MJtxiQu5qumTLqlFohKnSR73o",
@@ -30,11 +30,11 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
               email,
               createdAt,
               ...additionalData
-          })  
+          })
         }
         catch(error) {
             console.log("Error creating user", error.message)
-        
+
         }
     }
     return userRef;

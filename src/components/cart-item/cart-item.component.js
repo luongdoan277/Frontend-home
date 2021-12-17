@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { 
+import {
     CartItemContainer,
     ImageContainer,
     DetailItemContainer,
@@ -10,7 +10,7 @@ import {
     Price
  } from './cart-item.styles';
 import IncrementButton from '../increment-button/increment-button.component';
-import { RupiahFormat } from '../../utils/utils';
+import { VndFormat } from '../../utils/utils';
 import { addItem, removeItemFromCart } from '../../redux/cart/cart.actions';
 
 const CartItem = ({item, addItem, removeItemFromCart}) => {
@@ -25,7 +25,7 @@ const CartItem = ({item, addItem, removeItemFromCart}) => {
                     {name}
                 </ItemName>
                 <Price>
-                    {RupiahFormat(price)}
+                    {VndFormat(price)}
                 </Price>
                 <IncrementButtonContainer>
                     <IncrementButton

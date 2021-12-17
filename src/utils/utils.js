@@ -1,4 +1,4 @@
-export const RupiahFormat = (nominal) => {
-    let rupiah = (parseInt(nominal).toLocaleString('id', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }))
-    return rupiah;
+export const VndFormat = (nominal) => {
+    let vnd = (parseInt(nominal).toLocaleString('id', { style: 'currency', currency: 'VND', minimumFractionDigits: 0 }))
+    return vnd;
 }

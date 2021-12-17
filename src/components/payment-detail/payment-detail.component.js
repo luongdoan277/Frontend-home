@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { withRouter } from 'react-router';
 
-import { 
+import {
             PaymentDetailContainer,
             VoucherContainer,
             InputContainer,
@@ -16,14 +16,14 @@ import {
             TotalPaymentText,
             VoucherText,
             FlexSpaceBetween
-        } from './payment-detail.styles'; 
+        } from './payment-detail.styles';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
 import { selectSubtotalCartItems } from '../../redux/cart/cart.selectors';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { selectCartItemsCount } from '../../redux/cart/cart.selectors';
-import { RupiahFormat } from '../../utils/utils';
+import { VndFormat } from '../../utils/utils';
 import { setNotifShow } from '../../redux/notif/notif.actions';
 
 const PaymentDetail = ({total, currentUser, history, totalCartItems, setNotifShow }) => {
@@ -48,7 +48,7 @@ const PaymentDetail = ({total, currentUser, history, totalCartItems, setNotifSho
         else {
             history.push('/signup')
         }
-       
+
     }
     return (
         <PaymentDetailContainer>
@@ -60,7 +60,7 @@ const PaymentDetail = ({total, currentUser, history, totalCartItems, setNotifSho
                 {/* <ExpandButton>
                     +
                 </ExpandButton> */}
-           
+
                 <form onSubmit={() => handleSubmit()}>
                     <FlexSpaceBetween>
                         <InputContainer>
@@ -70,7 +70,7 @@ const PaymentDetail = ({total, currentUser, history, totalCartItems, setNotifSho
                         </InputContainer>
                         <ButtonVoucherContainer>
                             <CustomButton type="submit" secondary>Generate</CustomButton>
-                        </ButtonVoucherContainer>  
+                        </ButtonVoucherContainer>
                     </FlexSpaceBetween>
                 </form>
 
@@ -78,16 +78,16 @@ const PaymentDetail = ({total, currentUser, history, totalCartItems, setNotifSho
             <TotalDetailContainer>
                 <FlexSpaceBetween>
                     <TotalDetailText>Subtotal</TotalDetailText>
-                    <TotalDetailText>{RupiahFormat(total)}</TotalDetailText>
+                    <TotalDetailText>{VndFormat(total)}</TotalDetailText>
                 </FlexSpaceBetween>
                 <FlexSpaceBetween>
                     <TotalDetailText>Tax</TotalDetailText>
-                    <TotalDetailText>{RupiahFormat(0)}</TotalDetailText>
+                    <TotalDetailText>{VndFormat(0)}</TotalDetailText>
                 </FlexSpaceBetween>
                 <Line/>
                 <FlexSpaceBetween>
                     <TotalPaymentText>TOTAL PAYMENT</TotalPaymentText>
-                    <TotalPaymentNominal>{RupiahFormat(total)}</TotalPaymentNominal>
+                    <TotalPaymentNominal>{VndFormat(total)}</TotalPaymentNominal>
                 </FlexSpaceBetween>
                 <ButtonPaymentContainer>
                     <CustomButton onClick={handlePay} style={{width: '100%'}}>Pay Now</CustomButton>
@@ -96,7 +96,7 @@ const PaymentDetail = ({total, currentUser, history, totalCartItems, setNotifSho
         </PaymentDetailContainer>
     );
 }
-  
+
 
 const mapStateToProps = createStructuredSelector({
     total: selectSubtotalCartItems,

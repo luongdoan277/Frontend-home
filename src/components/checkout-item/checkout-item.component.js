@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import  style, { 
+import  style, {
             CheckoutItemContainer,
             ImageContainer,
             MediumBlockContainer,
@@ -9,7 +9,7 @@ import  style, {
  } from './checkout-item.styles';
 import IncrementButton from '../increment-button/increment-button.component';
 
-import { RupiahFormat } from '../../utils/utils';
+import { VndFormat } from '../../utils/utils';
 import { addItem, clearItemFromCart, removeItemFromCart } from '../../redux/cart/cart.actions';
 
 const CheckoutItem = ({item, addItem, clearItemFromCart, removeItemFromCart}) =>  {
@@ -24,7 +24,7 @@ const CheckoutItem = ({item, addItem, clearItemFromCart, removeItemFromCart}) =>
             <MediumBlockContainer>
                 <span>{name}</span>
             </MediumBlockContainer>
-    
+
             <MediumBlockContainer>
                 <IncrementButton
                     item={item}
@@ -34,7 +34,7 @@ const CheckoutItem = ({item, addItem, clearItemFromCart, removeItemFromCart}) =>
                 />
             </MediumBlockContainer>
             <MediumBlockContainer>
-                <span>{RupiahFormat(price)}</span>
+                <span>{VndFormat(price)}</span>
             </MediumBlockContainer>
             <SmallBlockContainer>
                 <span onClick={() => clearItemFromCart(item)}>

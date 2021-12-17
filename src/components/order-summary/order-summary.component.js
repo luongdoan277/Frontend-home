@@ -6,7 +6,7 @@ import { MediumBlockContainer,
          Badge
     } from './order-summary.styles';
 
-import { RupiahFormat } from '../../utils/utils';
+import { VndFormat } from '../../utils/utils';
 
 const OrderSummary = ({item : {imageUrl, price, quantity, name}}) => (
     <OrderContainer>
@@ -17,16 +17,16 @@ const OrderSummary = ({item : {imageUrl, price, quantity, name}}) => (
                     {quantity}
                 </Badge>
             </ImageContainer>
-        
+
         </MediumBlockContainer>
         <MediumBlockContainer>
             <span> {name}</span>
         </MediumBlockContainer>
         <MediumBlockContainer>
-            <span> {RupiahFormat(price)} x {quantity}</span>
+            <span> {VndFormat(price)} x {quantity}</span>
         </MediumBlockContainer>
         <MediumBlockContainer>
-            <span>{RupiahFormat(price*quantity)}</span>
+            <span>{VndFormat(price*quantity)}</span>
         </MediumBlockContainer>
     </OrderContainer>
 );

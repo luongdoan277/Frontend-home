@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 
 import CustomButton from '../custom-button/custom-button.component';
 import CartItem from '../cart-item/cart-item.component';
-import style, { 
+import style, {
     CartContainer,
     Triangel,
     Clear,
@@ -20,7 +20,7 @@ import style, {
 
 import { selectCartItems, selectSubtotalCartItems } from '../../redux/cart/cart.selectors';
 import { toogleCartHidden } from '../../redux/cart/cart.actions';
-import { RupiahFormat } from '../../utils/utils';
+import { VndFormat } from '../../utils/utils';
 
 const CartDropdown = ({cartItems, dispatch, subtotal, history}) => {
     return (
@@ -38,20 +38,21 @@ const CartDropdown = ({cartItems, dispatch, subtotal, history}) => {
                     cartItems.length?
                         cartItems.map((cartItem) => (
                         <CartItem key={cartItem.id} item={cartItem}/>
-                        ))     
-                    : <EmptyText>Your cart is empty</EmptyText>}      
+                        ))
+                    : <EmptyText>Your cart is empty</EmptyText>}
             </CartDropdownContainer>
+            <br/>
             <CartButtonContainer>
                 <SubtotalContainer>
                     <SubtotalText>Subtotal : </SubtotalText>
-                    <SubtotalNominalText>{RupiahFormat(subtotal)}</SubtotalNominalText>
+                    <SubtotalNominalText>{VndFormat(subtotal)}</SubtotalNominalText>
                 </SubtotalContainer>
                 <CustomButton onClick={() => {
                     history.push('/checkout')
                     dispatch(toogleCartHidden())
                 }} style={{width :'100%'}}> Go to Checkout</CustomButton>
             </CartButtonContainer>
-          
+
         </CartContainer>
     );
 }
